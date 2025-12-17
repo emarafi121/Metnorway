@@ -6,7 +6,7 @@ import os
 
 CLIENT_ID = 'e4dd60bf-8c28-4ddf-8b37-baff9d45f05f'
 
-# Open-Meteo archive lags about 5 days behind
+# Open Meteo archive lags about 5 days behind, so 5 days are adjusted for that reason
 END_DATE = datetime.now() - timedelta(days=5) 
 START_DATE = END_DATE - timedelta(days=365)
 
@@ -55,7 +55,7 @@ def fetch_frost_data(station_id, elements, start, end):
         
         df = pd.DataFrame(records)
         
-        # Clean up column names
+    
         df.rename(columns={
             'mean(surface_downwelling_shortwave_flux_in_air PT1H)': 'global_radiation', 
             'air_temperature': 'air_temperature_c',
@@ -118,7 +118,7 @@ def collect_station_data(name, info, start, end):
     else:
         combined = pd.merge(frost_df, snow_df, on='timestamp', how='left')
     
-    # Reorder columns
+    
     cols = ['timestamp', 'global_radiation', 'air_temperature_c', 'snow_depth_cm', 'cloud_cover_percent']
     combined = combined[[c for c in cols if c in combined.columns]]
     
