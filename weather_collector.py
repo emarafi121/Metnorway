@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 import time
 import os
 
-CLIENT_ID = 'e4dd60bf-8c28-4ddf-8b37-baff9d45f05f'
+CLIENT_ID = 'Put the actual Api Client ID here'
 
 # Open Meteo archive lags about 5 days behind, so 5 days are adjusted for that reason
 END_DATE = datetime.now() - timedelta(days=5) 
