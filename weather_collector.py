@@ -8,7 +8,7 @@ CLIENT_ID = 'e4dd60bf-8c28-4ddf-8b37-baff9d45f05f'
 
 # Open Meteo archive lags about 5 days behind, so 5 days are adjusted for that reason
 END_DATE = datetime.now() - timedelta(days=5) 
-START_DATE = END_DATE - timedelta(days=365)
+START_DATE = END_DATE - timedelta(days=365*5)
 
 STATIONS = {
     'Tingvoll': {'id': 'SN64510', 'lat': 62.90, 'lon': 8.16},
